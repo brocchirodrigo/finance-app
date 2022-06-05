@@ -1,15 +1,12 @@
-/* eslint-disable no-console */
-import { useContext } from 'react';
-
 import { Container } from './styles';
 
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
 import totalImg from '../../assets/total.svg';
-import { TransactionsContext } from '../../context/TransactionsContext';
+import { useTransaction } from '../../hooks/TransactionsContext';
 
 export function Summary() {
-  const { transactions } = useContext(TransactionsContext);
+  const { transactions } = useTransaction();
 
   const totalDeposits = transactions.reduce((acc, transaction) => {
     if (transaction.type === 'deposit') {

@@ -1,7 +1,8 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import {
-  createContext, ReactNode, useEffect, useState,
+  createContext, ReactNode, useEffect, useState, useContext,
 } from 'react';
+
 import { api } from '../api';
 
 interface ITransactions {
@@ -24,7 +25,7 @@ interface TransactionContextData {
   createTransaction: (transaction: TransactionInput) => Promise<void>;
 }
 
-export const TransactionsContext = createContext<TransactionContextData>(
+const TransactionsContext = createContext<TransactionContextData>(
   {} as TransactionContextData,
 );
 
@@ -52,4 +53,10 @@ export function TransactionsProvider({ children }: TransactionsProviderProps) {
       {children}
     </TransactionsContext.Provider>
   );
+}
+
+export function useTransaction() {
+  const context = useContext(TransactionsContext);
+
+  return context;
 }
