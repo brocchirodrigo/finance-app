@@ -1,24 +1,9 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { useEffect, useState } from 'react';
-import { api } from '../../api';
+import { useContext } from 'react';
 import { Container } from './styles';
-
-interface ITransactions {
-  id: number;
-  title: string;
-  category: string;
-  type: string;
-  amount: number;
-  createdAt: string;
-}
+import { TransactionsContext } from '../../context/TransactionsContext';
 
 export function TransactionTable() {
-  const [transactions, setTransactions] = useState<ITransactions[]>([]);
-
-  useEffect(() => {
-    api.get('/transactions')
-      .then((response) => setTransactions(response.data.transactions));
-  }, []);
+  const { transactions } = useContext(TransactionsContext);
 
   return (
     <Container>
