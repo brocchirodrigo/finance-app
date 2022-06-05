@@ -7,6 +7,8 @@ import { Header } from './components/Header';
 
 import { GlobalStyle } from './styles/global';
 
+Modal.setAppElement('#root');
+
 export function App() {
   const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] = useState(false);
 
@@ -28,7 +30,7 @@ export function App() {
       <Modal
         isOpen={isNewTransactionModalOpen}
         onRequestClose={HandleControlTransactionModal}
-        ariaHideApp={false}
+      // ariaHideApp={false}
       >
         <h2>Cadastrar Transação</h2>
       </Modal>
