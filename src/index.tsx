@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom/client';
 import { createServer } from 'miragejs';
 
 import { App } from './App';
-import { GlobalStyle } from './styles/global';
 
 createServer({
   routes() {
@@ -53,6 +52,5 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <App />
-    <GlobalStyle />
   </React.StrictMode>,
 );

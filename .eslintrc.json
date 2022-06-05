@@ -22,6 +22,14 @@
     "react-hooks"
   ],
   "rules": {
+    "react/jsx-no-bind": [
+      1,
+      {
+        "allowFunctions": true,
+        "allowArrowFunctions": true,
+        "allowBind": true
+      }
+    ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "react/jsx-filename-extension": [

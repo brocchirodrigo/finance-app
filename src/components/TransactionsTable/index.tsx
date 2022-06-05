@@ -5,6 +5,7 @@ import { Container } from './styles';
 export function TransactionTable() {
   useEffect(() => {
     api.get('/transactions')
+      // eslint-disable-next-line no-console
       .then((response) => console.log(response.data));
   }, []);
 
